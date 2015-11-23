@@ -1,23 +1,27 @@
 {
-  "name": "tp2",
-  "version": "1.0.0",
-  "description": "TP2 nodejs",
+  "name": "tp2_nodejs",
+  "version": "0.0.0",
+  "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "make test"
+    "start": "./bin/start",
+    "test": "./bin/test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JujuECE/ece-nodejs-yiu-guyot.git"
+    "url": "https://github.com/JujuECE/ece-nodejs-yiu-guyot"
   },
   "author": "jules et thierry",
-  "license": "ISC",
+  "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/JujuECE/ece-nodejs-yiu-guyot/issues"
   },
-  "homepage": "https://github.com/JujuECE/ece-nodejs-yiu-guyot#readme",
+  "dependencies": {
+    "should": "~7.1.1",
+    "mocha": "~2.3.4",
+    "nodejs": "0.0.0"
+  },
   "devDependencies": {
-    "mocha": "^2.3.4",
-    "should": "^7.1.1"
+    "nodejs": "0.0.0"
   }
 }
