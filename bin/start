@@ -1,4 +1,4 @@
 #!/bin/bash
 
 
-nodejs ./lib/server.js
+nodejs ./lib/server.coffee
