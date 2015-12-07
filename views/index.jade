@@ -1,0 +1,55 @@
+extend layout
+
+block head
+  script(src="/js/jquery-2.1.4.min.js")
+  script(src='/js/d3.v3.js')
+  script(src='/js/d3.min.js')
+  script(src='js/index.js')
+  script(src="/js/bootstrap.min.js")
+  script (src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js")
+
+
+  link(rel="stylesheet", href="/css/bootstrap.min.css")
+  link(rel="stylesheet",href="/css/global.css")
+
+block content
+  div.container
+    .row
+    .col-xs-12
+      header
+        h1 TP3 Asynchrone system
+        h2 Guyot JULES et Thierry YIU
+        .col-xs-6
+            form(method='POST', action='index.html')
+              label(for='pseudo') Votre pseudo :
+              input#pseudo(type='text', name='pseudo')
+              br
+              label(for='pass') Votre mot de passe :
+              input#pass(type='password', name='pass')
+              br
+        .col-xs-6
+              form(method='POST', action='index.html')
+                label(for='value') value :
+                input#value(type='text', name='value')
+                br
+                button#save-metrics.btn.btn-success Save
+                br
+
+
+      .col-xs-12
+      button#get-metrics.btn.btn-success Get
+      br
+      #content
+      #chart
+
+
+        script
+          :coffee-script
+            $('#get-metrics').click (e) ->
+              e.preventDefault()
+              $.getJSON '/metrics.json', (data) ->
+                $('#content').empty()
+                c = ""
+                for metric in data
+                  c += "<p>timestamp: #{metric.timestamp}<br/>value: #{metric.value}</p>"
+                $('#content').append c
