@@ -6,7 +6,8 @@ module.exports =
   ------
 
   Returns some hard coded metrics
-  ###
+
+
   get: () ->
     return [
       timestamp: new Date('2015-12-01 10:30 UTC').getTime(),
@@ -27,7 +28,8 @@ module.exports =
       timestamp: new Date('2015-12-01 10:55 UTC').getTime(),
       value: 20
     ]
-    ###
+
+
     `getData(id,cb)`
     ------------------------
     get some metrics with a given id
@@ -35,13 +37,26 @@ module.exports =
     Parameters:
     `id`: An integer defining a batch of metrics
     ###
-    ###
-    getData: (id,callback) ->
-      rs = db.createReadStream(keys:id)
-      rs.on 'data', (data) ->
-        'id= ' + id.data + 'value= ' + data.value
-      rs.end()
-    ###
+
+  get: (username, callback) ->
+    console.log 'enter get'
+    metrics = []
+    i=0
+    rs = db.createReadStream()
+    rs.on 'data', (data) ->
+      [_,_username] = data.key.split ':'
+      [_id,_timestamp,_value] = data.value.split ':'
+      metrics[i] =
+        username: _username,
+        id: _id,
+        timestamp: _id,
+        value: _value
+      i++
+    console.log 'sortie get data'
+    rs.on 'error', callback
+    rs.on 'close', ->
+      callback null, metrics
+
   ###
   `save(id, metrics, cb)`
   ------------------------
@@ -59,4 +74,15 @@ module.exports =
     for m in metrics
       {timestamp, value} = m
       ws.write key: "metric:#{id}:#{timestamp}", value: value
+    ws.end()
+
+
+
+  saveData: (username, id, timestamp, value, callback) ->
+    console.log 'savedata enter'
+    ws = db.createWriteStream()
+    ws.on 'error', callback
+    ws.on 'close', callback
+    ws.write key: "user:#{username}", value: "#{id}.#{timestamp}.#{value}"
+    console.log "savedata enter user:#{username}:#{id}", value: "#{timestamp}:#{value}"
     ws.end()
