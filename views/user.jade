@@ -1,0 +1,17 @@
+block content
+form#login(action='/save_metrics', method="post")
+  .form-group
+    label id:
+    input(type='text', name="username")
+  .form-group
+    label timestamp:
+    input(type='password', name="timestamp")
+    label value:
+    input(type='password', name="value")
+
+  button#login_submit.btn.btn-primary.btn-block(type='submit')
+    i.icon-ok.icon-white
+    | Save
+
+  a(href="/")
+    button.btn.btn-primary(type="button") Page d'accueil
