@@ -13,7 +13,7 @@ cliquer sur le bouton signup et remplir les informations
 Attention le mail doit contenir le caractere '@' pour etre valable.
 #NE PAS METTRE DE POINT '.' DANS LE MAIL sinon probleme au niveau du split quand on va recuprer les données.
 
-##Etape4: acces au compte
+#Etape4: acces au compte
 Apres avoir creer le compte clique sur le bouton login.
 Rentrer les identifiants du compte que vous avez crée ou les comptes root ou root2
 
