@@ -1,17 +1,5 @@
 extend layout
 
-block head
-  script(src="/js/jquery-2.1.4.min.js")
-  script(src='/js/d3.v3.js')
-  script(src='/js/d3.min.js')
-  script(src='js/index.js')
-  script(src="/js/bootstrap.min.js")
-  script (src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js")
-
-
-  link(rel="stylesheet", href="/css/bootstrap.min.css")
-  link(rel="stylesheet",href="/css/global.css")
-
 block content
   div.container
     .row
@@ -19,23 +7,16 @@ block content
       header
         h1 TP3 Asynchrone system
         h2 Guyot JULES et Thierry YIU
-        .col-xs-6
-        form#login(action='/login', method="post")
-          button#login_submit.btn.btn-primary.btn-block(type='submit')
-            i.icon-ok.icon-white
-            | Login
+    .row
+    .col-xs-12
+      form#loginlink(action='/loginpage', method="post")
+        button#login_submit.btn.btn-primary(type='submit')
+          i.icon-ok.icon-white
+          | Login
 
     .row
     .col-xs-12
-      form#signup(action='/signuppage', method="post")
-        button#login_submit.btn.btn-primary.btn-block(type='submit')
+      form#signuplink(action='/signuppage', method="post")
+        button#signup_submit.btn.btn-info(type='submit')
           i.icon-ok.icon-white
           | Signup
-
-
-    .row
-    .col-xs-12
-      button#get-metrics.btn.btn-success Get
-      br
-      #content
-      #chart

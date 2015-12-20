@@ -1,57 +1,53 @@
 #!/usr/bin/env coffee
 
-exec = require('child_process').exec
+  metrics = require '../src/metrics_user'
+  user = require '../src/user'
 
-exec "rm -rf #{__dirname}/../db/metrics && mkdir #{__dirname}/../db/metrics", (err, stdout, stderr) ->
-  if err then throw err
-
-  # Require after rm and mkdir or DB is deleted once in callback
-  metrics = require '../src/metrics'
-
-  console.log 'DB deleted'
-  console.log 'Creating metrics'
   met = [
-    [
-      timestamp: new Date('2015-12-01 10:30 UTC').getTime(),
-      value: 26
-    ,
-      timestamp: new Date('2015-12-01 10:35 UTC').getTime(),
-      value: 23
-    ,
-      timestamp: new Date('2015-12-01 10:40 UTC').getTime(),
-      value: 20
-    ,
-      timestamp: new Date('2015-12-01 10:45 UTC').getTime(),
-      value: 19
-    ,
-      timestamp: new Date('2015-12-01 10:50 UTC').getTime(),
-      value: 18
-    ,
-      timestamp: new Date('2015-12-01 10:55 UTC').getTime(),
-      value: 20
-    ],
-      [
-        timestamp: new Date('2015-11-01 10:30 UTC').getTime(),
-        value: 26
-      ,
-        timestamp: new Date('2015-11-01 10:35 UTC').getTime(),
-        value: 23
-      ,
-        timestamp: new Date('2015-11-01 10:40 UTC').getTime(),
-        value: 20
-      ,
-        timestamp: new Date('2015-11-01 10:45 UTC').getTime(),
-        value: 19
-      ,
-        timestamp: new Date('2015-11-01 10:50 UTC').getTime(),
-        value: 18
-      ,
-        timestamp: new Date('2015-11-01 10:55 UTC').getTime(),
-        value: 20
-      ]
+
+    username: "root",
+    id: 10,
+    timestamp: 11,
+    value: 12
+  ,
+    username: "root",
+    id : 13,
+    timestamp: 14,
+    value: 15
+  ,
+    username: "root2",
+    id : 16,
+    timestamp: 17,
+    value: 18
+  ,
+    username: "root2",
+    id : 19,
+    timestamp: 20,
+    value: 21
+
   ]
 
-  for metric, index in met
+  for username, id, timestamp, value in met
     console.log "Saving batch #{index + 1}"
-    metrics.save index + 1, metric, (err) ->
+    metrics_user.saveData username, id, timestamp, value, (err) ->
+      return next err if err
+
+
+  met_user = [
+
+    username: "root",
+    name: "root",
+    password: "root",
+    email: "root@root"
+  ,
+    username: "root2",
+    name: "root2",
+    password: "root2",
+    email: "root2@root2"
+
+  ]
+
+  for username, name, password, email in met_user
+    console.log "Saving batch #{index + 1}"
+    user.save username, name, password, email, (err) ->
       return next err if err

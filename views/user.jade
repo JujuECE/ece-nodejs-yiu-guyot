@@ -1,17 +1,55 @@
+extend layout
+
+
 block content
-form#login(action='/save_metrics', method="post")
-  .form-group
-    label id:
-    input(type='text', name="username")
-  .form-group
-    label timestamp:
-    input(type='password', name="timestamp")
-    label value:
-    input(type='password', name="value")
+  div.container
+    p Page Utilisateur
+    hr
 
-  button#login_submit.btn.btn-primary.btn-block(type='submit')
-    i.icon-ok.icon-white
-    | Save
+    .row
+      section#Save Save data form
+        form#save(action='/save_metrics', method="post")
+          .form-group
+            label id:
+            input(type='text', name="id")
+          .form-group
+            label Timestamp:
+            input(type='text', name="timestamp")
+          .form-group
+            label Value:
+            input(type='text', name="value")
+          button#login_submit.btn.btn-success(type='submit')
+            i.icon-ok.icon-white
+            | Save
 
-  a(href="/")
-    button.btn.btn-primary(type="button") Page d'accueil
+
+    .row
+      section#Delete Delete data form
+        form#delete(action='/remove_metrics', method="post")
+          .form-group
+            label id:
+            input(type='text', name="id")
+          .form-group
+            label Timestamp:
+            input(type='text', name="timestamp")
+          .form-group
+            label Value:
+            input(type='text', name="value")
+          button#login_submit.btn.btn-danger(type='submit')
+            i.icon-ok.icon-white
+            | Delete (ne fonctionne pas)
+
+      .row
+        section#getdata
+          form#getdata(action='/metrics', method="post")
+            button#login_submit.btn.btn-primary(type='submit')
+              i.icon-ok.icon-white
+              | GetData
+
+
+    .row
+      section#logout
+        form#logout(action='/logout', method="post")
+          button#login_submit.btn.btn-warning(type='submit')
+            i.icon-ok.icon-white
+            | Logout

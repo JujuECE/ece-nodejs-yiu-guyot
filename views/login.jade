@@ -1,5 +1,7 @@
+extend layout
+
 block content
-  #form
+  div.container
     p Please login to your account
     hr
     form#login(action='/login', method="post")
@@ -10,9 +12,9 @@ block content
         label Password:
         input(type='password', name="password")
 
-      button#login_submit.btn.btn-primary.btn-block(type='submit')
+      button#login_submit.btn.btn-success(type='submit')
         i.icon-ok.icon-white
         | Connect
-
-      a(href="/")
-        button.btn.btn-primary(type="button") Page d'accueil
+    
+    a(href="/")
+      button.btn.btn-primary(type="button") Page d'accueil

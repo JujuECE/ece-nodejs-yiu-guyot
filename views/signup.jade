@@ -1,8 +1,10 @@
+extend layout
+
 block content
-  #form
+  div.container
     p Please login to your account
     hr
-    form#login(action='/signup', method="post")
+    form#signup(action='/signup', method="post")
       .form-group
         label Username:
         input(type='text', name="username")
@@ -16,9 +18,9 @@ block content
         label Email:
         input(type='email', name="email")
 
-      button#login_submit.btn.btn-primary.btn-block(type='submit')
+      button#login_submit.btn.btn-success(type='submit')
         i.icon-ok.icon-white
         | Signup
-
-      a(href="/")
-        button.btn.btn-primary(type="button") Page d'accueil
+    
+    a(href="/")
+      button.btn.btn-primary(type="button") Page d'accueil
