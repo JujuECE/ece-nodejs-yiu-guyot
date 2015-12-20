@@ -1,5 +1,5 @@
 ##Etape 1 : remplir la base.
-Executer le fichier populatedb qui se trouve dans le dossier bin qui va remplir la base user et metrics_user
+Executer le fichier populatedb qui se trouve dans le dossier bin qui va creer et remplir la base user et metrics_user
 Pour information:
 compte1=> login:root password:root
 compte2=> login:root2 password:root2
