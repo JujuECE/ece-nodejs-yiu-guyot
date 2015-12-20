@@ -1,0 +1,26 @@
+extend layout
+
+block content
+  div.container
+    p Please login to your account
+    hr
+    form#signup(action='/signup', method="post")
+      .form-group
+        label Username:
+        input(type='text', name="username")
+      .form-group
+        label Name:
+        input(type='text', name="name")
+      .form-group
+        label Password:
+        input(type='password', name="password")
+      .form-group
+        label Email:
+        input(type='email', name="email")
+
+      button#login_submit.btn.btn-success(type='submit')
+        i.icon-ok.icon-white
+        | Signup
+    
+    a(href="/")
+      button.btn.btn-primary(type="button") Page d'accueil

@@ -1,0 +1,53 @@
+#!/usr/bin/env coffee
+
+  metrics = require '../src/metrics_user'
+  user = require '../src/user'
+
+  met = [
+
+    username: "root",
+    id: 10,
+    timestamp: 11,
+    value: 12
+  ,
+    username: "root",
+    id : 13,
+    timestamp: 14,
+    value: 15
+  ,
+    username: "root2",
+    id : 16,
+    timestamp: 17,
+    value: 18
+  ,
+    username: "root2",
+    id : 19,
+    timestamp: 20,
+    value: 21
+
+  ]
+
+  for username, id, timestamp, value in met
+    console.log "Saving batch #{index + 1}"
+    metrics_user.saveData username, id, timestamp, value, (err) ->
+      return next err if err
+
+
+  met_user = [
+
+    username: "root",
+    name: "root",
+    password: "root",
+    email: "root@root"
+  ,
+    username: "root2",
+    name: "root2",
+    password: "root2",
+    email: "root2@root2"
+
+  ]
+
+  for username, name, password, email in met_user
+    console.log "Saving batch #{index + 1}"
+    user.save username, name, password, email, (err) ->
+      return next err if err

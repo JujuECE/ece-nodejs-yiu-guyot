@@ -1,27 +1,21 @@
 {
-  "name": "tp2_nodejs",
-  "version": "0.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "start": "./bin/start",
-    "test": "./bin/test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/JujuECE/ece-nodejs-yiu-guyot"
-  },
-  "author": "jules et thierry",
-  "license": "BSD-2-Clause",
-  "bugs": {
-    "url": "https://github.com/JujuECE/ece-nodejs-yiu-guyot/issues"
-  },
-  "dependencies": {
-    "should": "~7.1.1",
-    "mocha": "~2.3.4",
-    "nodejs": "0.0.0"
-  },
-  "devDependencies": {
-    "nodejs": "0.0.0"
-  }
+	"name": "asynchronous server technologies",
+	"description": "class @ ece",
+	"version": "0.0.1",
+	"author": {
+		"name": "Jules",
+		"website": "github.com/***"
+	},
+	"website": "...",
+	"dependencies": {
+		"mymodule": "1.2.y",
+		"mymodule": "~1.2.x",
+		"mymodule": ">=1.2.z",
+		"mymodule": "*",
+		"mylocalmodule": "file: ./server.js",
+		"mygithubmodule": "git_account/module/...."
+	},
+	"devDependencies": {
+		"test-module": "*"
+	}
 }

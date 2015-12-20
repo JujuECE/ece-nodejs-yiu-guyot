@@ -1,0 +1,20 @@
+extend layout
+
+block content
+  div.container
+    p Please login to your account
+    hr
+    form#login(action='/login', method="post")
+      .form-group
+        label Username:
+        input(type='text', name="username")
+      .form-group
+        label Password:
+        input(type='password', name="password")
+
+      button#login_submit.btn.btn-success(type='submit')
+        i.icon-ok.icon-white
+        | Connect
+    
+    a(href="/")
+      button.btn.btn-primary(type="button") Page d'accueil
