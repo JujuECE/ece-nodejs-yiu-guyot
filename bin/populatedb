@@ -1,4 +1,13 @@
 #!/usr/bin/env coffee
+exec = require('child_process').exec
+
+exec "rm -rf #{__dirname}/../db/metrics_user && mkdir #{__dirname}/../db/metrics_user", (err, stdout, stderr) ->
+  if err then throw err
+
+exec "rm -rf #{__dirname}/../db/users && mkdir #{__dirname}/../db/users", (err, stdout, stderr) ->
+  if err then throw err
+
+
 
   metrics = require '../src/metrics_user'
   user = require '../src/user'
